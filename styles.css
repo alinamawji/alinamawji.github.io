@@ -28,7 +28,7 @@ body {
 }
 
 .slideshow-container {
-    max-width: 80%;
+    max-width: 900px;
     width: 100%;
     background: #fff;
     border-radius: 10px;
@@ -101,7 +101,7 @@ body {
 }
 
 .slide-images img {
-    max-width: 15%; /* Set maximum width */
+    max-width: 200px; /* Set maximum width */
     height: auto; /* Maintain aspect ratio */
     margin: 0 10px;
 }
