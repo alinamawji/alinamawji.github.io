@@ -396,7 +396,7 @@ document.addEventListener("DOMContentLoaded", function() {
         svgHormone.append("text")
             .attr("x", annotationEnd.x - 50)
             .attr("y", annotationEnd.y / 2)
-            .text("Cancer stage: T3, Tumor size: 120, Estimated months of survival: 83")
+            .text("Cancer stage: T3, Tumor size: 120, Estimated survival months: 83")
             .attr("font-size", "12px")
             .attr("fill", "gray");
 
