@@ -45,7 +45,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // defined color variables for T1, T2, T3, T4
         var colorT1 = "#6E82B2";
         var colorT2 = "#DBB5D8";
-        var colorT3 = "#ADD8E6a2";
+        var colorT3 = "#A6C4E1";
         var colorT4 = "#FFDBBB";
 
         // Select the legend-text div and append the legend text
@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .attr("height", function(d) { 
                 return height - y(d.length); 
             })
-            .style("fill", "#ADD8E6a2")
+            .style("fill", "#A6C4E1")
             .style("opacity", 0.6)
             .on("mouseover", function(event, d) {
                 d3.select(this).style("opacity", 1); // Brighten the bar
@@ -282,7 +282,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // defined color variables for T1, T2, T3, T4
         var colorT1 = "#6E82B2";
         var colorT2 = "#DBB5D8";
-        var colorT3 = "#ADD8E6a2";
+        var colorT3 = "#A6C4E1";
         var colorT4 = "#FFDBBB";
 
         // Select the legend-text div and append the legend text
@@ -347,7 +347,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Color scale: give me a specie name, I return a color
         var color = d3.scaleOrdinal()
             .domain(["T1", "T2", "T3", "T4"])
-            .range(["#9491BF", "#DBB5D8", "#9FBBCE", "#D7C2A3"])
+            .range(["#9491BF", "#DBB5D8", "#A6C4E1", "#D7C2A3"])
 
         // Add dots
         svgHormone.append("g")
