@@ -45,8 +45,8 @@ document.addEventListener("DOMContentLoaded", function() {
         // defined color variables for T1, T2, T3, T4
         var colorT1 = "#6E82B2";
         var colorT2 = "#DBB5D8";
-        var colorT3 = "#A6C4E1";
-        var colorT4 = "#FFDBBB";
+        var colorT3 = "#CBE1A6";
+        var colorT4 = "#EA908D";
 
         // Select the legend-text div and append the legend text
         var legendText = d3.select("#legend-text")
@@ -204,7 +204,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .attr("height", function(d) { 
                 return height - y(d.length); 
             })
-            .style("fill", "#A6C4E1")
+            .style("fill", "#CBE1A6")
             .style("opacity", 0.6)
             .on("mouseover", function(event, d) {
                 d3.select(this).style("opacity", 1); // Brighten the bar
@@ -239,7 +239,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .attr("height", function(d) { 
                 return height - y(d.length); 
             })
-            .style("fill", "#FFDBBB")
+            .style("fill", "#EA908D")
             .style("opacity", 0.6)
             .on("mouseover", function(event, d) {
                 d3.select(this).style("opacity", 1); // Brighten the bar
@@ -282,8 +282,8 @@ document.addEventListener("DOMContentLoaded", function() {
         // defined color variables for T1, T2, T3, T4
         var colorT1 = "#6E82B2";
         var colorT2 = "#DBB5D8";
-        var colorT3 = "#A6C4E1";
-        var colorT4 = "#FFDBBB";
+        var colorT3 = "#CBE1A6";
+        var colorT4 = "#EA908D";
 
         // Select the legend-text div and append the legend text
         var legendText = d3.select("#legend-text-2")
@@ -347,7 +347,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Color scale: give me a specie name, I return a color
         var color = d3.scaleOrdinal()
             .domain(["T1", "T2", "T3", "T4"])
-            .range(["#9491BF", "#DBB5D8", "#A6C4E1", "#D7C2A3"])
+            .range(["#9491BF", "#DBB5D8", "#CBE1A6", "#EA908D"])
 
         // Add dots
         svgHormone.append("g")
@@ -405,7 +405,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // STAGE BY DEATHS
         // defined color variables for alive and died
         var color1 = "#6B94D0";
-        var color2 = "#DC757E";
+        var color2 = "#F3C58A";
 
         // Select the legend-text div and append the legend text
         var legendText = d3.select("#legend-text-3")
@@ -436,7 +436,7 @@ document.addEventListener("DOMContentLoaded", function() {
         // Color palette
         var color = d3.scaleOrdinal()
             .domain(subgroups)
-            .range(["#6B94D0", "#DC757E"]);
+            .range(["#6B94D0", "#F3C58A"]);
 
         // Scales
         var x = d3.scaleBand()
