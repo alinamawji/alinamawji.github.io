@@ -15,7 +15,7 @@ body {
 }
 
 .image-container {
-    max-width: 900px;
+    max-width: 80%;
     width: 100%;
     margin-bottom: 20px;
 }
@@ -28,7 +28,7 @@ body {
 }
 
 .slideshow-container {
-    max-width: 900px;
+    max-width: 80%;
     width: 100%;
     background: #fff;
     border-radius: 10px;
@@ -40,7 +40,7 @@ body {
 
 .slide {
     display: none; /* Hide all slides initially */
-    min-height: 300px; /* Ensure all slides are the same size */
+    /* min-height: 300px; Ensure all slides are the same size */
 }
 
 .slide.active {
@@ -82,11 +82,13 @@ body {
 }
 
 .slide-content {
-    max-width: 80%;
+    width: 100%;
+    max-width: 900px;
     margin-bottom: 20px;
     color: #BC8F8F;
     margin: 0 auto; /* Center horizontally */
     text-align: left; /* Align text to the left */
+    margin-left: 20px;
 }
 
 .slide-content * {
@@ -98,10 +100,11 @@ body {
     justify-content: center;
     align-items: center;
     margin-top: 20px;
+    overflow-x: auto;
 }
 
 .slide-images img {
-    max-width: 200px; /* Set maximum width */
+    max-width: 30%; /* Set maximum width */
     height: auto; /* Maintain aspect ratio */
     margin: 0 10px;
 }
