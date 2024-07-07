@@ -101,7 +101,7 @@ body {
 }
 
 .slide-images img {
-    max-width: 200px; /* Set maximum width */
+    max-width: 15%; /* Set maximum width */
     height: auto; /* Maintain aspect ratio */
     margin: 0 10px;
 }
