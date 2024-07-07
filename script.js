@@ -55,7 +55,8 @@ document.addEventListener("DOMContentLoaded", function() {
             .style("margin-top", "10px");
 
         // Create the legend text with colored spans for each segment
-        legendText.html(`<span style="color:${colorT1};">T1</span>&nbsp;&nbsp;&nbsp;&nbsp;
+        legendText.html(`<span style="color:#666;">Stages:</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <span style="color:${colorT1};">T1</span>&nbsp;&nbsp;&nbsp;&nbsp;
                  <span style="color:${colorT2};">T2</span>&nbsp;&nbsp;&nbsp;&nbsp;
                  <span style="color:${colorT3};">T3</span>&nbsp;&nbsp;&nbsp;&nbsp;
                  <span style="color:${colorT4};">T4</span>`);
@@ -291,7 +292,8 @@ document.addEventListener("DOMContentLoaded", function() {
             .style("margin-top", "10px");
 
         // Create the legend text with colored spans for each segment
-        legendText.html(`<span style="color:${colorT1};">T1</span>&nbsp;&nbsp;&nbsp;&nbsp;
+        legendText.html(`<span style="color:#666;">Stages:</span>&nbsp;&nbsp;&nbsp;&nbsp
+                    <span style="color:${colorT1};">T1</span>&nbsp;&nbsp;&nbsp;&nbsp;
                     <span style="color:${colorT2};">T2</span>&nbsp;&nbsp;&nbsp;&nbsp;
                     <span style="color:${colorT3};">T3</span>&nbsp;&nbsp;&nbsp;&nbsp;
                     <span style="color:${colorT4};">T4</span>`);
@@ -326,7 +328,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .attr("text-anchor", "middle")
             .attr("x", width / 2)
             .attr("y", height + 38)
-            .text("Tumor size");
+            .text("Tumor size (mm)");
 
         // Add Y axis
         var y = d3.scaleLinear()
@@ -467,7 +469,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .attr("x", -height / 2)
             .attr("y", -margin.left + 12)
             .attr("transform", "rotate(-90)")
-            .text("Survival percentage");
+            .text("Survival percentage (%)");
 
         // Tooltip
         var tooltipStatus = d3.select("#status-chart").append("div")
