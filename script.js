@@ -42,6 +42,24 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
         // STAGE BY AGE
+        // defined color variables for T1, T2, T3, T4
+        var colorT1 = "#6E82B2";
+        var colorT2 = "#DBB5D8";
+        var colorT3 = "#ADD8E6a2";
+        var colorT4 = "#FFDBBB";
+
+        // Select the legend-text div and append the legend text
+        var legendText = d3.select("#legend-text")
+            .style("text-align", "center")
+            .style("font-size", "18px")
+            .style("margin-top", "10px");
+
+        // Create the legend text with colored spans for each segment
+        legendText.html(`<span style="color:${colorT1};">T1</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                 <span style="color:${colorT2};">T2</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                 <span style="color:${colorT3};">T3</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                 <span style="color:${colorT4};">T4</span>`);
+
         // Set up dimensions and margins for the chart
         var margin = { top: 20, right: 20, bottom: 50, left: 50 };
         var width = 800 - margin.left - margin.right;
@@ -260,6 +278,25 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
         // TUMOR SIZE BY SURVIVAL MONTHS
+        // defined color variables for T1, T2, T3, T4
+        var colorT1 = "#6E82B2";
+        var colorT2 = "#DBB5D8";
+        var colorT3 = "#ADD8E6a2";
+        var colorT4 = "#FFDBBB";
+
+        // Select the legend-text div and append the legend text
+        var legendText = d3.select("#legend-text-2")
+            .style("text-align", "center")
+            .style("font-size", "18px")
+            .style("margin-top", "10px");
+
+        // Create the legend text with colored spans for each segment
+        legendText.html(`<span style="color:${colorT1};">T1</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span style="color:${colorT2};">T2</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span style="color:${colorT3};">T3</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span style="color:${colorT4};">T4</span>`);
+
+
         var margin = { top: 20, right: 20, bottom: 50, left: 50 };
         var width = 800 - margin.left - margin.right;
         var height = 300 - margin.top - margin.bottom;
@@ -364,6 +401,20 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
         // STAGE BY DEATHS
+        // defined color variables for alive and died
+        var color1 = "#6B94D0";
+        var color2 = "#DC757E";
+
+        // Select the legend-text div and append the legend text
+        var legendText = d3.select("#legend-text-3")
+            .style("text-align", "center")
+            .style("font-size", "18px")
+            .style("margin-top", "10px");
+
+        // Create the legend text with colored spans for each segment
+        legendText.html(`<span style="color:${color1};">Alive</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span style="color:${color2};">Died</span>&nbsp;&nbsp;&nbsp;&nbsp`);
+
         var margin = { top: 20, right: 20, bottom: 50, left: 50 };
         var width = 800 - margin.left - margin.right;
         var height = 300 - margin.top - margin.bottom;

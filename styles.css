@@ -106,6 +106,14 @@ body {
     margin: 0 10px;
 }
 
+.legend {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
 .tooltip {
     position: absolute;
     background-color: white;
@@ -113,7 +121,7 @@ body {
     border-radius: 4px;
     padding: 10px;
     pointer-events: none;
-  }
+}
 
 /* Responsive Design */
 @media (max-width: 768px) {
