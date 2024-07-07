@@ -144,8 +144,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 tooltip.html("<strong>Age Range:</strong> " + d.x0 + " - " + d.x1 +
                                 "<br><strong>Cancer Stage:</strong> " + d[0]['T Stage '] + 
                             "<br><strong>Number of Cases:</strong> " + d.length)
-                        .style("left", (event.clientX - 10) + "px")  // Adjust left position
-                        .style("top", (event.clientY - 10) + "px"); // Adjust top position
+                        .style("left", (event.clientX + 10) + "px")  // Adjust left position
+                        .style("top", (event.clientY + 10) + "px"); // Adjust top position
             })
             .on("mouseout", function(d) {
                 d3.select(this).style("opacity", 0.6); // Restore original opacity
@@ -179,8 +179,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 tooltip.html("<strong>Age Range:</strong> " + d.x0 + " - " + d.x1 +
                                 "<br><strong>Cancer Stage:</strong> " + d[0]['T Stage '] + 
                             "<br><strong>Number of Cases:</strong> " + d.length)
-                        .style("left", (event.clientX - 10) + "px")  // Adjust left position
-                        .style("top", (event.clientY - 10) + "px"); // Adjust top position
+                        .style("left", (event.clientX + 10) + "px")  // Adjust left position
+                        .style("top", (event.clientY + 10) + "px"); // Adjust top position
             })
             .on("mouseout", function(d) {
                 d3.select(this).style("opacity", 0.6); // Restore original opacity
@@ -214,8 +214,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 tooltip.html("<strong>Age Range:</strong> " + d.x0 + " - " + d.x1 +
                                 "<br><strong>Cancer Stage:</strong> " + d[0]['T Stage '] + 
                             "<br><strong>Number of Cases:</strong> " + d.length)
-                        .style("left", (event.clientX - 10) + "px")  // Adjust left position
-                        .style("top", (event.clientY - 10) + "px"); // Adjust top position
+                        .style("left", (event.clientX + 10) + "px")  // Adjust left position
+                        .style("top", (event.clientY + 10) + "px"); // Adjust top position
             })
             .on("mouseout", function(d) {
                 d3.select(this).style("opacity", 0.6); // Restore original opacity
@@ -249,8 +249,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 tooltip.html("<strong>Age Range:</strong> " + d.x0 + " - " + d.x1 +
                                 "<br><strong>Cancer Stage:</strong> " + d[0]['T Stage '] + 
                             "<br><strong>Number of Cases:</strong> " + d.length)
-                        .style("left", (event.clientX - 10) + "px")  // Adjust left position
-                        .style("top", (event.clientY - 10) + "px"); // Adjust top position
+                        .style("left", (event.clientX + 10) + "px")  // Adjust left position
+                        .style("top", (event.clientY + 10) + "px"); // Adjust top position
             })
             .on("mouseout", function(d) {
                 d3.select(this).style("opacity", 0.6); // Restore original opacity
@@ -371,8 +371,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     tooltipHormone.html("<strong>Tumor size:</strong> " + d['Tumor Size'] +
                                     "<br><strong>Estimated survival months:</strong> " + d['Survival Months'] +
                                     "<br><strong>Cancer Stage:</strong> " + d['T Stage '])
-                            .style("left", (event.clientX - 10) + "px")  // Adjust left position
-                            .style("top", (event.clientY - 10) + "px"); // Adjust top position
+                            .style("left", (event.clientX + 10) + "px")  // Adjust left position
+                            .style("top", (event.clientY + 10) + "px"); // Adjust top position
                 })
                 .on("mouseout", function(d) {
                     d3.select(this).style("opacity", 0.6); // Restore original opacity
@@ -557,8 +557,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     tooltipStatus.html(tooltipLabel + (dataset === 'race' ? d.data['Race'] : d.data['MaritalStatus']) +
                             "<br><strong>Percent survived:</strong> " + d.data['Alive'] + "%" +
                             "<br><strong>Percent died:</strong> " + d.data['Dead'] + "%")
-                        .style("left", (event.clientX) - 10 + "px")
-                        .style("top", (event.clientY) - 10 + "px");
+                        .style("left", (event.clientX) + 10 + "px")
+                        .style("top", (event.clientY) + 10 + "px");
                 })
                 .on("mouseout", function(d) {
                     d3.select(this).style("opacity", 0.6);
