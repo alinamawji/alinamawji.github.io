@@ -369,7 +369,7 @@ document.addEventListener("DOMContentLoaded", function() {
                         .duration(200)
                         .style("opacity", 0.9); // Make tooltip visible
                     tooltipHormone.html("<strong>Tumor size:</strong> " + d['Tumor Size'] +
-                                    "<br><strong>Number of survival months:</strong> " + d['Survival Months'] +
+                                    "<br><strong>Estimated survival months:</strong> " + d['Survival Months'] +
                                     "<br><strong>Cancer Stage:</strong> " + d['T Stage '])
                             .style("left", (event.clientX - 50) + "px")  // Adjust left position
                             .style("top", (event.clientY - 50) + "px"); // Adjust top position
@@ -396,7 +396,7 @@ document.addEventListener("DOMContentLoaded", function() {
         svgHormone.append("text")
             .attr("x", annotationEnd.x - 50)
             .attr("y", annotationEnd.y / 2)
-            .text("Cancer stage: T3, Tumor size: 120, Months of survival: 83")
+            .text("Cancer stage: T3, Tumor size: 120, Estimated months of survival: 83")
             .attr("font-size", "12px")
             .attr("fill", "gray");
 
