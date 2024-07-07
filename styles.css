@@ -1,0 +1,129 @@
+/* Basic reset and styling */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+}
+
+.image-container {
+    max-width: 900px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+.image-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.slideshow-container {
+    max-width: 900px;
+    width: 100%;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    position: relative;
+    text-align: center; /* Center text content horizontally */
+}
+
+.slide {
+    display: none; /* Hide all slides initially */
+    min-height: 300px; /* Ensure all slides are the same size */
+}
+
+.slide.active {
+    display: block; /* Show only active slide */
+}
+
+.slide h1, .slide h2 {
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.slide p {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.button-container {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.slide-btn {
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.slide-btn:hover {
+    background-color: #333;
+}
+
+.slide-btn:focus {
+    outline: none;
+}
+
+.slide-content {
+    max-width: 80%;
+    margin-bottom: 20px;
+    color: #BC8F8F;
+    margin: 0 auto; /* Center horizontally */
+    text-align: left; /* Align text to the left */
+}
+
+.slide-content * {
+    color: inherit; /* Inherit color from .slide-content */
+}
+
+.slide-images {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.slide-images img {
+    max-width: 200px; /* Set maximum width */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 10px;
+}
+
+.tooltip {
+    position: absolute;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+    pointer-events: none;
+  }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .button-container {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .slide-btn {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+}

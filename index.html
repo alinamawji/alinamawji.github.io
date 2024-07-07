@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Breast Cancer Statistics Slideshow</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Image above the slide container -->
+    <div class="image-container">
+        <img src="images/breast-cancer-runner.jpg" alt="Breast Cancer Awareness">
+    </div>
+
+    <div class="slideshow-container">
+        <div id="slide1" class="slide active">
+            <h1>Breast Cancer Statistics</h1>
+            <p>Welcome to the interactive slideshow on breast cancer statistics. This 
+                presentation will cover various aspects of breast cancer incidence and survival 
+                including age, tumor size, race, and marital status.
+            </p>
+            <div class="slide-content">
+                <br>
+                <p><strong>Important facts:</strong></p>
+                <ul>
+                    <li>Breast cancer is the most common cancer among women worldwide</li>
+                    <li>Certain factors can increase risk, such as age, family history, and 
+                        inherited gene mutations</li>
+                    <li>Detecting breast cancer early through regular screenings significantly 
+                        improves survival rates</li>
+                </ul>
+                <br>
+                <p>For more details, check out the <a href="https://www.kaggle.com/datasets/reihanenamdari/breast-cancer" target="_blank">dataset on Kaggle</a>.</p>
+            </div>
+            <div class="slide-images">
+                <img src="images/ribbon.webp" alt="Breast Cancer Ribbon">
+                <img src="images/analysis.jpg" alt="Medical Data Analysis">
+                <!-- Add more images as needed -->
+            </div>
+            <div class="button-container">
+                <button class="nextBtn slide-btn">Next</button>
+            </div>
+        </div>
+        
+        <div id="slide2" class="slide">
+            <h2>What is the age distribution of breast cancer cases?</h2>
+            <p>You may be wondering around what age breast cancer develops and 
+                its progression throughout life. This slide shows a graphical representation of breast 
+                cancer cases by age group, and segmented by cancer stage.
+            </p>
+            <div class="slide-content">
+                <br>
+                <p><strong>Key facts:</strong></p>
+                <ul>
+                    <li>Breast cancer occurs more in women older than age 40</li>
+                    <li>Stage 1 and 2 cancers are the most common</li>
+                </ul>
+                <br>
+            </div>
+            <div id="age-chart"></div>
+            <div id="tooltip" class="tooltip" style="opacity: 0;"></div>
+            <div class="button-container">
+                <button class="prevBtn slide-btn">Previous</button>
+                <button class="nextBtn slide-btn">Next</button>
+            </div>
+        </div>
+        
+        <div id="slide3" class="slide">
+            <h2>Once you have breast cancer, does the tumor size play a role in estimated survival months?</h2>
+            <p>One measure that is tracked during breast cancer treatment is tumor size. This 
+                slide shows a graphical representation of tumor size by estimated survival months. It is further
+                segmented by cancer stage.
+            </p>
+            <div class="slide-content">
+                <br>
+                <p><strong>Key facts:</strong></p>
+                <ul>
+                    <li>Tumor size does not correlate with the estimated months of survival</li>
+                    <li>Generally, as cancer stages progresses (from T1 to T4), tumor size increases</li>
+                    <li>Some T4 tumors can be smaller</li>
+                </ul>
+                <br>
+            </div>
+            <div id="hormone-chart"></div>
+            <div id="tooltip" class="tooltip" style="opacity: 0;"></div>
+            <div class="button-container">
+                <button class="prevBtn slide-btn">Previous</button>
+                <button class="nextBtn slide-btn">Next</button>
+            </div>
+        </div>
+        
+        <div id="slide4" class="slide">
+            <h2>Do any other factors like race or marital status correlate with survival likelihood?</h2>
+            <p>Once you are diagnosed with breast cancer, you may wonder whether any factors apart from traits of the tumor
+                correlate with your survival. This slide shows a graphical representation of
+                either race or marital status by percentage of survival vs death.
+            </p>
+            <div class="slide-content">
+                <br>
+                <p><strong>Key facts:</strong></p>
+                <ul>
+                    <li>Other races have higher rates of survival compared to white and black women</li>
+                    <li>Married women have higher rates of survival compared to other marital statuses</li>
+                </ul>
+                <br>
+            </div>
+            <div id="status-chart"></div>
+            <div id="tooltip" class="tooltip" style="opacity: 0;"></div>
+            <div class="dropdown-container">
+                <label for="dataset-select">Select Dataset:</label>
+                <select id="dataset-select" onchange="updateGraph(this.value)">
+                    <option value="race" selected>Race</option>
+                    <option value="maritalStatus">Marital Status</option>
+                </select>
+            </div>
+            <div class="button-container">
+                <button class="prevBtn slide-btn">Previous</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
