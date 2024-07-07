@@ -89,6 +89,7 @@ body {
     margin: 0 auto; /* Center horizontally */
     text-align: left; /* Align text to the left */
     margin-left: 20px;
+    margin-right: 20px;
 }
 
 .slide-content * {
