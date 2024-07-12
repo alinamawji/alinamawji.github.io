@@ -401,7 +401,7 @@ document.addEventListener("DOMContentLoaded", function() {
         }
 
         // Initially load the graph with T1 selected
-        updateHormoneGraph("T1");
+        updateHormoneGraph("All");
 
         // Event listeners for legend boxes (stage selection)
         d3.selectAll('.legend-box').on("click", function() {
