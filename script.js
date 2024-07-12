@@ -263,7 +263,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .attr("x1", 350)
             .attr("y1", 130)
             .attr("x2", 150)
-            .attr("y2", 40)
+            .attr("y2", 50)
             .attr("stroke", "gray")
             .attr("stroke-width", 1)
             .style("stroke-dasharray", ("3, 3"))  // Optional: Add a dashed style
@@ -271,6 +271,12 @@ document.addEventListener("DOMContentLoaded", function() {
             .attr("x", 100 - 50)
             .attr("y", 50 / 2)
             .text("Age range: 40-50, Cancer stage: T1, Number of cases: 410")
+            .attr("font-size", "12px")
+            .attr("fill", "gray");
+        svg.append("text")
+            .attr("x", 100 - 50)
+            .attr("y", 50 / 2 + 18)
+            .text("**Note: Number of cases jumps from age 30-40 to 40+")
             .attr("font-size", "12px")
             .attr("fill", "gray");
 
@@ -382,24 +388,29 @@ document.addEventListener("DOMContentLoaded", function() {
                 });
 
         var annotationStart = { x: x(data[86]["Tumor Size"]), y: y(data[86]["Survival Months"]) };
-        var annotationEnd = { x: 430, y: 10 };  // Adjust these coordinates as needed
+        var annotationEnd = { x: 445, y: 20 };
         
         // Append the annotation line
         svgHormone.append("line")
             .attr("x1", annotationStart.x)
             .attr("y1", annotationStart.y)
-            .attr("x2", annotationEnd.x)
-            .attr("y2", annotationEnd.y)
+            .attr("x2", 530)
+            .attr("y2", 25)
             .attr("stroke", "gray")
             .attr("stroke-width", 1)
             .style("stroke-dasharray", ("3, 3"));  // Optional: Add a dashed style
         svgHormone.append("text")
             .attr("x", annotationEnd.x - 50)
-            .attr("y", annotationEnd.y / 2)
+            .attr("y", annotationEnd.y / 2 - 10)
             .text("Cancer stage: T3, Tumor size: 120, Estimated survival months: 83")
             .attr("font-size", "12px")
             .attr("fill", "gray");
-
+        svgHormone.append("text")
+            .attr("x", annotationEnd.x - 70)
+            .attr("y", annotationEnd.y / 2 + 6)
+            .text("**Note: There is an interesting distinction of sizes for T1-T3, but not T4")
+            .attr("font-size", "12px")
+            .attr("fill", "gray");
 
 
         // STAGE BY DEATHS
