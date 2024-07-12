@@ -300,10 +300,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Create the legend text with colored spans for each segment
         legendText.html(`<span style="color:#666;">Stages:</span>&nbsp;&nbsp;&nbsp;&nbsp
-                    <span style="color:${colorT1};">T1</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <span style="color:${colorT2};">T2</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <span style="color:${colorT3};">T3</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <span style="color:${colorT4};">T4</span>`);
+                    <span class="legend-box" id="stage-T1" style="color:${colorT1};">T1</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="legend-box" id="stage-T2" style="color:${colorT2};">T2</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="legend-box" id="stage-T3" style="color:${colorT3};">T3</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="legend-box" id="stage-T4" style="color:${colorT4};">T4</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <span class="legend-box" id="stage-All" style="color:gray;">All</span>`);
 
 
         var margin = { top: 20, right: 20, bottom: 50, left: 50 };
@@ -324,7 +325,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 "translate(" + margin.left + "," + margin.top + ")");
 
         // Add X axis
-        var x = d3.scaleLinear()
+        var xHormone = d3.scaleLinear()
             .domain([0, 150])
             .range([ 0, width ]);
         svgHormone.append("g")
@@ -338,7 +339,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .text("Tumor size (mm)");
 
         // Add Y axis
-        var y = d3.scaleLinear()
+        var yHormone = d3.scaleLinear()
             .domain([0, 120])
             .range([ height, 0]);
         svgHormone.append("g")
@@ -352,54 +353,75 @@ document.addEventListener("DOMContentLoaded", function() {
             .text("Estimated survival months");
 
         // Color scale: give me a specie name, I return a color
-        var color = d3.scaleOrdinal()
+        var colorHormone = d3.scaleOrdinal()
             .domain(["T1", "T2", "T3", "T4"])
             .range(["#9491BF", "#DBB5D8", "#CBE1A6", "#EA908D"])
 
-        // Add dots
-        svgHormone.append("g")
-            .selectAll("dot")
-            .data(data)
-            .enter()
-            .append("circle")
-                .attr("cx", function (d) { 
-                    return x(d["Tumor Size"]); } )
-                .attr("cy", function (d) { 
-                    return y(d["Survival Months"]); } )
-                .attr("r", 5)
-                .style("fill", function (d) { 
-                    return color(d["T Stage "]) } )
-                .style("opacity", 0.6)
-                .on("mouseover", function(event, d) {
-                    d3.select(this).style("opacity", 1); // Brighten the circle
-                    tooltipHormone.transition()
-                        .duration(200)
-                        .style("opacity", 0.9); // Make tooltip visible
-                    tooltipHormone.html("<strong>Tumor size:</strong> " + d['Tumor Size'] +
-                                    "<br><strong>Estimated survival months:</strong> " + d['Survival Months'] +
-                                    "<br><strong>Cancer Stage:</strong> " + d['T Stage '])
-                            .style("left", (event.clientX + 10) + "px")  // Adjust left position
-                            .style("top", (event.clientY + 10) + "px"); // Adjust top position
-                })
-                .on("mouseout", function(d) {
-                    d3.select(this).style("opacity", 0.6); // Restore original opacity
-                    tooltipHormone.transition()
-                        .duration(500)
-                        .style("opacity", 0); // Hide tooltip
-                });
+        // Function to update the graph based on selected stage
+        function updateHormoneGraph(stage) {
+            // Filter data based on selected stage
+            var filteredData = data.filter(function (d) {
+                return d["T Stage "] === stage || stage === "All";
+            });
+
+            // Remove existing dots
+            svgHormone.selectAll("circle").remove();
+
+            // Add new dots for the selected stage
+            svgHormone.selectAll("dots")
+                .data(filteredData)
+                .enter()
+                .append("circle")
+                    .attr("cx", function (d) { return xHormone(d["Tumor Size"]); })
+                    .attr("cy", function (d) { return yHormone(d["Survival Months"]); })
+                    .attr("r", 5)
+                    .style("fill", function (d) { return colorHormone(d["T Stage "]); })
+                    .style("opacity", 0.6)
+                    .on("mouseover", function(event, d) {
+                        d3.select(this).style("opacity", 1); // Brighten the circle
+                        tooltipHormone.transition()
+                            .duration(200)
+                            .style("opacity", 0.9); // Make tooltip visible
+                        tooltipHormone.html("<strong>Tumor size:</strong> " + d['Tumor Size'] +
+                                        "<br><strong>Estimated survival months:</strong> " + d['Survival Months'] +
+                                        "<br><strong>Cancer Stage:</strong> " + d['T Stage '])
+                                .style("left", (event.clientX + 10) + "px")  // Adjust left position
+                                .style("top", (event.clientY + 10) + "px"); // Adjust top position
+                    })
+                    .on("mouseout", function(d) {
+                        d3.select(this).style("opacity", 0.6); // Restore original opacity
+                        tooltipHormone.transition()
+                            .duration(500)
+                            .style("opacity", 0); // Hide tooltip
+                    })
+                    .exit().remove();;
+
+            // Update annotations or additional elements as needed
+            // Example: Update annotation positions or content based on the selected stage
+        }
+
+        // Initially load the graph with T1 selected
+        updateHormoneGraph("T1");
+
+        // Event listeners for legend boxes (stage selection)
+        d3.selectAll('.legend-box').on("click", function() {
+            var selectedStage = d3.select(this).attr('id').replace('stage-', '');
+            updateHormoneGraph(selectedStage);
+        });
+
 
         var annotationStart = { x: x(data[86]["Tumor Size"]), y: y(data[86]["Survival Months"]) };
         var annotationEnd = { x: 445, y: 20 };
         
         // Append the annotation line
-        svgHormone.append("line")
-            .attr("x1", annotationStart.x)
-            .attr("y1", annotationStart.y)
-            .attr("x2", 530)
-            .attr("y2", 18)
-            .attr("stroke", "gray")
-            .attr("stroke-width", 1)
-            .style("stroke-dasharray", ("3, 3"));  // Optional: Add a dashed style
+        // svgHormone.append("line")
+        //     .attr("x1", annotationStart.x)
+        //     .attr("y1", annotationStart.y)
+        //     .attr("x2", 530)
+        //     .attr("y2", 18)
+        //     .attr("stroke", "gray")
+        //     .attr("stroke-width", 1)
+        //     .style("stroke-dasharray", ("3, 3"));  // Optional: Add a dashed style
         svgHormone.append("text")
             .attr("x", annotationEnd.x - 180)
             .attr("y", annotationEnd.y / 2 - 14)
