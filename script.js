@@ -263,20 +263,21 @@ document.addEventListener("DOMContentLoaded", function() {
             .attr("x1", 350)
             .attr("y1", 130)
             .attr("x2", 150)
-            .attr("y2", 50)
+            .attr("y2", 45)
             .attr("stroke", "gray")
             .attr("stroke-width", 1)
             .style("stroke-dasharray", ("3, 3"))  // Optional: Add a dashed style
         svg.append("text")
             .attr("x", 100 - 50)
-            .attr("y", 50 / 2)
-            .text("Age range: 40-50, Cancer stage: T1, Number of cases: 410")
+            .attr("y", 50 / 2 - 8)
+            .text("The number of cases jumps from age 30-40 to 40+")
             .attr("font-size", "12px")
+            .attr("font-weight", "bold")
             .attr("fill", "gray");
         svg.append("text")
-            .attr("x", 100 - 50)
-            .attr("y", 50 / 2 + 18)
-            .text("**Note: Number of cases jumps from age 30-40 to 40+")
+            .attr("x", 100 - 20)
+            .attr("y", 50 / 2 + 10)
+            .text("** Hover over the bars to learn more **")
             .attr("font-size", "12px")
             .attr("fill", "gray");
 
@@ -395,20 +396,21 @@ document.addEventListener("DOMContentLoaded", function() {
             .attr("x1", annotationStart.x)
             .attr("y1", annotationStart.y)
             .attr("x2", 530)
-            .attr("y2", 25)
+            .attr("y2", 18)
             .attr("stroke", "gray")
             .attr("stroke-width", 1)
             .style("stroke-dasharray", ("3, 3"));  // Optional: Add a dashed style
         svgHormone.append("text")
-            .attr("x", annotationEnd.x - 50)
-            .attr("y", annotationEnd.y / 2 - 10)
-            .text("Cancer stage: T3, Tumor size: 120, Estimated survival months: 83")
+            .attr("x", annotationEnd.x - 180)
+            .attr("y", annotationEnd.y / 2 - 14)
+            .text("There is an interesting distinction of sizes for T1-T3, but not T4")
             .attr("font-size", "12px")
-            .attr("fill", "gray");
+            .attr("fill", "gray")
+            .attr("font-weight", "bold");
         svgHormone.append("text")
-            .attr("x", annotationEnd.x - 70)
-            .attr("y", annotationEnd.y / 2 + 6)
-            .text("**Note: There is an interesting distinction of sizes for T1-T3, but not T4")
+            .attr("x", annotationEnd.x - 110)
+            .attr("y", annotationEnd.y / 2 + 4)
+            .text("** Hover over the dots to learn more **")
             .attr("font-size", "12px")
             .attr("fill", "gray");
 
@@ -428,7 +430,7 @@ document.addEventListener("DOMContentLoaded", function() {
         legendText.html(`<span style="color:${color1};">Alive</span>&nbsp;&nbsp;&nbsp;&nbsp;
                     <span style="color:${color2};">Died</span>&nbsp;&nbsp;&nbsp;&nbsp`);
 
-        var margin = { top: 20, right: 20, bottom: 50, left: 50 };
+        var margin = { top: 40, right: 20, bottom: 50, left: 50 };
         var width = 800 - margin.left - margin.right;
         var height = 300 - margin.top - margin.bottom;
 
@@ -590,19 +592,27 @@ document.addEventListener("DOMContentLoaded", function() {
             // annotations
             svgStatus.selectAll(".annotation").remove();
             svgStatus.append("line")
-                .attr("x1", (dataset === 'race' ? 210 : 265))
+                .attr("x1", (dataset === 'race' ? 520 : 255))
                 .attr("y1", 90)
-                .attr("x2", (dataset === 'race' ? 245 : 295))
+                .attr("x2", (dataset === 'race' ? 480 : 295))
                 .attr("y2", -3)
                 .attr("class", "annotation")
                 .attr("stroke", "gray")
                 .attr("stroke-width", 1)
                 .style("stroke-dasharray", ("3, 3"))  // Optional: Add a dashed style
             svgStatus.append("text")
-                .attr("x", 240 - 100)
+                .attr("x", 160)
+                .attr("y", -26)
+                .attr("class", "annotation")
+                .text((dataset === 'race' ? "Other women survived 89.7% of the time, while black women survived 74.9% of the time" : "Married women survived 86.5% of the time, while separated women survived 66.7% of the time") )
+                .attr("font-size", "12px")
+                .attr("font-weight", "bold")
+                .attr("fill", "gray");
+            svgStatus.append("text")
+                .attr("x", 290)
                 .attr("y", -10)
                 .attr("class", "annotation")
-                .text((dataset === 'race' ? "Race: White, Percent survived: 85.1%, Percent died: 14.9%" : "Marital Status: Married, Percent survived: 86.5%, Percent died: 13.5%") )
+                .text("** Hover over the bars to learn more **")
                 .attr("font-size", "12px")
                 .attr("fill", "gray");
 
