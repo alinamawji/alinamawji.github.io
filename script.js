@@ -270,7 +270,7 @@ document.addEventListener("DOMContentLoaded", function() {
         svg.append("text")
             .attr("x", 100 - 50)
             .attr("y", 50 / 2 - 8)
-            .text("The number of cases jumps from age 30-40 to 40+")
+            .text("The number of cases jumps from age 30-40 to 40+.")
             .attr("font-size", "12px")
             .attr("font-weight", "bold")
             .attr("fill", "gray");
@@ -423,9 +423,9 @@ document.addEventListener("DOMContentLoaded", function() {
         //     .attr("stroke-width", 1)
         //     .style("stroke-dasharray", ("3, 3"));  // Optional: Add a dashed style
         svgHormone.append("text")
-            .attr("x", annotationEnd.x - 180)
+            .attr("x", annotationEnd.x - 240)
             .attr("y", annotationEnd.y / 2 - 14)
-            .text("There is an interesting distinction of sizes for T1-T3, but not T4")
+            .text("There is a distinction of sizes for T1-T3, but not T4. The data does not show any other trends.")
             .attr("font-size", "12px")
             .attr("fill", "gray")
             .attr("font-weight", "bold");
@@ -450,7 +450,7 @@ document.addEventListener("DOMContentLoaded", function() {
 
         // Create the legend text with colored spans for each segment
         legendText.html(`<span style="color:${color1};">Alive</span>&nbsp;&nbsp;&nbsp;&nbsp;
-                    <span style="color:${color2};">Died</span>&nbsp;&nbsp;&nbsp;&nbsp`);
+                    <span style="color:${color2};">Dead</span>&nbsp;&nbsp;&nbsp;&nbsp`);
 
         var margin = { top: 40, right: 20, bottom: 50, left: 50 };
         var width = 800 - margin.left - margin.right;
@@ -626,7 +626,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 .attr("x", 160)
                 .attr("y", -26)
                 .attr("class", "annotation")
-                .text((dataset === 'race' ? "Other women survived 89.7% of the time, while black women survived 74.9% of the time" : "Married women survived 86.5% of the time, while separated women survived 66.7% of the time") )
+                .text((dataset === 'race' ? "Other women survived 89.7% of the time, while black women survived 74.9% of the time." : "Married women survived 86.5% of the time, while separated women survived 66.7% of the time.") )
                 .attr("font-size", "12px")
                 .attr("font-weight", "bold")
                 .attr("fill", "gray");
