@@ -330,7 +330,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .range([ 0, width ]);
         svgHormone.append("g")
             .attr("transform", "translate(0," + height + ")")
-            .call(d3.axisBottom(x));
+            .call(d3.axisBottom(xHormone));
         svgHormone.append("text")
             .attr("class", "x label")
             .attr("text-anchor", "middle")
@@ -343,7 +343,7 @@ document.addEventListener("DOMContentLoaded", function() {
             .domain([0, 120])
             .range([ height, 0]);
         svgHormone.append("g")
-            .call(d3.axisLeft(y));
+            .call(d3.axisLeft(yHormone));
         svgHormone.append("text")
             .attr("class", "y label")
             .attr("text-anchor", "middle")
